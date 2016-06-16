@@ -1,0 +1,26 @@
+{
+  "name": "SnapE Screen Share",
+  "description": "Screensharing utility for snape",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "minimum_chrome_version": "34",
+    "browser_action": {
+    "default_icon": "icon.png"
+  },
+  "permissions": [
+    "desktopCapture"
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [ {
+    "js": [ "content.js" ],
+    "matches": [ "https://snape-rtc.avaya.com/*" ],
+    "all_frames": true
+  }],
+  "externally_connectable": {
+      "matches": [
+          "https://snape-rtc.avaya.com/*"
+      ]
+  }
+}
