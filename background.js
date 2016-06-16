@@ -2,9 +2,12 @@
 chrome.runtime.onMessageExternal.addListener(function (message, sender, callback) {
     switch(message.type) {
         case 'getScreen':
+        var tab = sender.tab;
+        tab.url = sender.url;
             var pending = chrome.desktopCapture.chooseDesktopMedia(message.options || ['screen', 'window'],
-                                                                   sender.tab, function (streamid) {
+                                                                   tab, function (streamid) {
                 // communicate this string to the app so it can call getUserMedia with it
+                alert(tab.url);
                 message.type = 'gotScreen';
                 message.sourceId = streamid;
                 callback(message);

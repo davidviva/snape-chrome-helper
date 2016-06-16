@@ -15,7 +15,7 @@
   },
   "content_scripts": [ {
     "js": [ "content.js" ],
-    "matches": [ "https://snape-rtc.avaya.com/*" ],
+    "matches": [ "https://snape-rtc.avaya.com/*"],
     "all_frames": true
   }],
   "externally_connectable": {
